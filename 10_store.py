@@ -32,52 +32,30 @@ store = {
     ],
 }
 
-# Рассчитать на какую сумму лежит каждого товара на складе
-# и вывести в формате
-#   <товар> - <кол-во> шт, стоимость <сумма> руб
 
-# Пример:
-#   Лампа - 27 шт, стоимость 1134 руб
-'''
-for code, batches in store.items():
-    if code == '12345':
-        sum_qty = 0
-        for good in batches:
-            qty = good['quantity']
-            price = good['price']
-            sum_1 = sum_qty + qty
-        result = sum_qty * price
-        print(f"{12345} - {qty} шт, стоимость {result} руб")
-    if code == '23456':
-        sum_qty = 0
-        for good in batches:
-            qty = good['quantity']
-            price = good['price']
-            sum_qty = sum_qty + qty
-        result = sum_qty * price
-        print(f"{23456} - {qty} шт, стоимость {result} руб")                        
-    if code == '34567':
-        sum_qty = 0
-        for good in batches:
-            qty = good['quantity']
-            price = good['price']
-            sum_qty = sum_qty + qty
-        result = sum_qty * price
-        print(f"{34567} - {qty} шт, стоимость {result} руб")
-    if code == '45678':
-        sum_qty = 0
-        for good in batches:
-            qty = good['quantity']
-            price = good['price']
-            sum_qty = sum_qty + qty
-        result = sum_qty * price
-        print(f"{45678} - {qty} шт, стоимость {result} руб")   
-'''
+def calculate_totals(goods, store):
+    """Рассчитывает количество и стоимость каждого товара на складе.
 
-for name, code in goods.items():
-    total_qty = 0
-    total_cost = 0
-    for batch in store[code]:
-        total_qty += batch['quantity']
-        total_cost += batch['quantity'] * batch['price']
-    print(f"{name} - {total_qty} шт, стоимость {total_cost} руб")
+    Возвращает список кортежей (товар, кол-во шт, стоимость руб).
+    Стоимость складывается по всем партиям товара.
+    """
+    result = []
+    for name, code in goods.items():
+        total_qty = 0
+        total_cost = 0
+        for batch in store[code]:
+            total_qty += batch['quantity']
+            total_cost += batch['quantity'] * batch['price']
+        result.append((name, total_qty, total_cost))
+    return result
+
+
+def main():
+    for name, total_qty, total_cost in calculate_totals(goods, store):
+        print(f"{name} - {total_qty} шт, стоимость {total_cost} руб")
+    return calculate_totals(goods, store)
+
+
+# Защита от автоматического выполнения при импорте модуля
+if __name__ == "__main__":
+    main()

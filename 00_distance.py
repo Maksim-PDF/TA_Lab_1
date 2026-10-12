@@ -14,12 +14,10 @@ sites = {
 
 
 def compute_distances(sites):
-    """Составляет словарь словарей расстояний между городами.
-
-    Расстояние на координатной сетке:
-    ((x1 - x2) ** 2 + (y1 - y2) ** 2) ** 0.5
-    """
     distances = {}
+
+    # TODO здесь заполнение словаря
+
     for city1, (x1, y1) in sites.items():
         distances[city1] = {}
         for city2, (x2, y2) in sites.items():
@@ -29,11 +27,8 @@ def compute_distances(sites):
 
 
 def main():
-    distances = compute_distances(sites)
-    print(distances)
-    return distances
+    print(compute_distances(sites))
 
 
-# Защита от автоматического выполнения при импорте модуля
 if __name__ == "__main__":
     main()

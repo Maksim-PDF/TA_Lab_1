@@ -10,12 +10,11 @@ my_family = ["Мать", "Отец", "Брат"]
 my_family_height = [
     ['Мать', 155],
     ['Отец', 180],
-    ['Брат', 182],
+    ['Брат', 182]
 ]
 
 
 def get_height_of_member(heights, member):
-    """Возвращает рост члена семьи по имени."""
     for name, height in heights:
         if name == member:
             return height
@@ -23,7 +22,6 @@ def get_height_of_member(heights, member):
 
 
 def get_total_family_height(heights):
-    """Возвращает общий рост семьи как сумму ростов всех членов."""
     total_height = 0
     for name, height in heights:
         total_height += height
@@ -31,10 +29,14 @@ def get_total_family_height(heights):
 
 
 def main():
+    # Выведите на консоль рост отца в формате
+    #   Рост отца - ХХ см
     print(f"Рост отца - {get_height_of_member(my_family_height, 'Отец')} см")
+
+    # Выведите на консоль общий рост вашей семьи как сумму ростов всех членов
+    #   Общий рост моей семьи - ХХ см
     print(f"Общий рост моей семьи - {get_total_family_height(my_family_height)} см")
 
 
-# Защита от автоматического выполнения при импорте модуля
 if __name__ == "__main__":
     main()

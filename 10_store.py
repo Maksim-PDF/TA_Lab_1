@@ -32,13 +32,15 @@ store = {
     ],
 }
 
+# Рассчитать на какую сумму лежит каждого товара на складе
+# и вывести в формате
+#   <товар> - <кол-во> шт, стоимость <сумма> руб
+
+# Пример:
+#   Лампа - 27 шт, стоимость 1134 руб
+
 
 def calculate_totals(goods, store):
-    """Рассчитывает количество и стоимость каждого товара на складе.
-
-    Возвращает список кортежей (товар, кол-во шт, стоимость руб).
-    Стоимость складывается по всем партиям товара.
-    """
     result = []
     for name, code in goods.items():
         total_qty = 0
@@ -51,11 +53,11 @@ def calculate_totals(goods, store):
 
 
 def main():
-    for name, total_qty, total_cost in calculate_totals(goods, store):
+    totals = calculate_totals(goods, store)
+    for name, total_qty, total_cost in totals:
         print(f"{name} - {total_qty} шт, стоимость {total_cost} руб")
-    return calculate_totals(goods, store)
+    return totals
 
 
-# Защита от автоматического выполнения при импорте модуля
 if __name__ == "__main__":
     main()

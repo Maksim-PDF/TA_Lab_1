@@ -13,7 +13,8 @@ env/
 
 # Файлы IDE
 .idea/
-.vscode/
+.vscode/*
+!.vscode/settings.json
 
 # Служебные файлы ОС
 .DS_Store

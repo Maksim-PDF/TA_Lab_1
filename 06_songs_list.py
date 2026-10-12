@@ -15,6 +15,11 @@ violator_songs_list = [
     ['Clean', 5.83],
 ]
 
+# Распечатайте общее время звучания трех песен: 'Halo', 'Enjoy the Silence' и 'Clean' в формате
+#   Три песни звучат ХХХ минут
+# Обратите внимание, что суммирование чисел с плавающей точкой может давать погрешность,
+# округлите результат до 3 знаков после запятой
+
 # Есть словарь песен группы Depeche Mode
 violator_songs_dict = {
     'World in My Eyes': 4.76,
@@ -28,14 +33,13 @@ violator_songs_dict = {
     'Clean': 5.68,
 }
 
+# Распечатайте общее время звучания трех других песен: 'Sweetest Perfection', 'Policy of Truth' и 'Blue Dress'
+# в формате
+#   А другие три песни звучат ХХХ минут
+# Обратите внимание на округление
+
 
 def get_total_duration(songs, titles):
-    """Возвращает суммарное время звучания песен из titles.
-
-    songs - список пар [название, время] или словарь {название: время}.
-    Суммирование чисел с плавающей точкой может давать погрешность,
-    поэтому результат округляется до 3 знаков после запятой.
-    """
     total_time = 0
     if isinstance(songs, dict):
         items = songs.items()
@@ -52,13 +56,10 @@ def main():
         violator_songs_list, ('Halo', 'Enjoy the Silence', 'Clean'))
     print(f"Три песни звучат {total_time} минут")
 
-    # правка: вторая часть задания считается по словарю violator_songs_dict,
-    # а не по списку, и выводится фраза "А другие три песни звучат ..."
     other_total_time = get_total_duration(
         violator_songs_dict, ('Sweetest Perfection', 'Policy of Truth', 'Blue Dress'))
     print(f"А другие три песни звучат {other_total_time} минут")
 
 
-# Защита от автоматического выполнения при импорте модуля
 if __name__ == "__main__":
     main()

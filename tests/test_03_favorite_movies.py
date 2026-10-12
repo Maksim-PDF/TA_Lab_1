@@ -1,5 +1,13 @@
 """Тесты задания 03: выбор фильмов срезами строки."""
 
+# Позволяет запускать файл напрямую: python tests/test_XX.py
+# Корень проекта добавляется в sys.path независимо от pytest.ini
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 import importlib
 
 movies_task = importlib.import_module('03_favorite_movies')
@@ -21,3 +29,9 @@ def test_no_commas_in_output(capsys):
     assert len(lines) == 4
     for line in lines:
         assert ',' not in line
+
+
+# Прямой запуск: python tests/test_XX.py -> тесты выполняются через pytest
+if __name__ == "__main__":
+    import pytest
+    pytest.main([__file__])

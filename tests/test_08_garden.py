@@ -1,5 +1,13 @@
 """Тесты задания 08: множества цветов сада и луга."""
 
+# Позволяет запускать файл напрямую: python tests/test_XX.py
+# Корень проекта добавляется в sys.path независимо от pytest.ini
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 import importlib
 
 garden_task = importlib.import_module('08_garden')
@@ -34,3 +42,9 @@ def test_main_prints_four_sections(capsys):
     assert 'и в саду, и на лугу' in out
     assert 'в саду, но не растут на лугу' in out
     assert 'на лугу, но не растут в саду' in out
+
+
+# Прямой запуск: python tests/test_XX.py -> тесты выполняются через pytest
+if __name__ == "__main__":
+    import pytest
+    pytest.main([__file__])

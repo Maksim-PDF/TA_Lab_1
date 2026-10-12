@@ -1,5 +1,13 @@
 """Тесты задания 09: два магазина с минимальными ценами на сладости."""
 
+# Позволяет запускать файл напрямую: python tests/test_XX.py
+# Корень проекта добавляется в sys.path независимо от pytest.ini
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 import importlib
 
 import pytest
@@ -35,3 +43,9 @@ def test_main_prints_sweets(capsys):
     out = capsys.readouterr().out
     for product in ('печенье', 'конфеты', 'карамель', 'пирожное'):
         assert product in out
+
+
+# Прямой запуск: python tests/test_XX.py -> тесты выполняются через pytest
+if __name__ == "__main__":
+    import pytest
+    pytest.main([__file__])

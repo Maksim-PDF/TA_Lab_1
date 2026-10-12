@@ -1,5 +1,13 @@
 """Тесты верхнеуровневого модуля main.py: консольное меню."""
 
+# Позволяет запускать файл напрямую: python tests/test_XX.py
+# Корень проекта добавляется в sys.path независимо от pytest.ini
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 import main as main_module
 
 
@@ -49,3 +57,9 @@ def test_menu_runs_task_then_quits(monkeypatch, capsys):
     out = capsys.readouterr().out
     assert 'Задание 2' in out
     assert '25' in out
+
+
+# Прямой запуск: python tests/test_XX.py -> тесты выполняются через pytest
+if __name__ == "__main__":
+    import pytest
+    pytest.main([__file__])

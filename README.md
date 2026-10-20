@@ -143,6 +143,3 @@ if __name__ == "__main__":
 ## Автор
 
 Student, student@example.com
-=======
-# TA_Lab_1
->>>>>>> 234bfc46cf7ef9dbbfe2072602a582b996da92e7

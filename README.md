@@ -139,7 +139,3 @@ if __name__ == "__main__":
 Поэтому `import 01_circle` (или подключение через
 `importlib.import_module('01_distance')` в меню) не приводит к выполнению
 решения — модуль лишь предоставляет свои функции и данные.
-
-## Автор
-
-Student, student@example.com
